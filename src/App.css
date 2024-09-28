@@ -1,0 +1,28 @@
+.Conatiner{
+    display: flex;
+}
+
+.blockIngred{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 400px;
+    margin: 10px;
+    border: 1px solid black;
+    background: white;
+}
+
+.blockPay{
+    border: 1px solid black;
+    width: 500px;
+    height: 750px;
+    margin: 30px;
+}
+
+.ingred{
+    text-align: center;
+}
+
+.total{
+    text-align: center;
+}
