@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css'
+import {Ingredient} from "./type"
+import burgerImage from "./assets/burger.jpg";
+import stripsImage from "./assets/strips.jpg";
+import freeImage from "./assets/free.png";
+import colaImage from "./assets/cola.jpg";
+import  teaImage from "./assets/tea.jpg";
+import  coffeeImage from "./assets/coffee.jpg";
+
+
+const App = () => {
+
+  const INGREDIENTS: Ingredient[] = [
+    {name: 'Burger', price: 80, image: burgerImage},
+    {name: 'Strips', price: 50, image: stripsImage },
+    {name: 'Free', price: 60, image: freeImage},
+    {name: 'Cola', price: 40, image: colaImage},
+    {name: 'Tea', price: 40, image: teaImage},
+    {name: 'Coffee', price: 100, image: coffeeImage},
+  ];
+
+
+  const AddIngredient = (name: string) => {
+    console.log(name);
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <>
+        <div>
+          {INGREDIENTS.map(ingredient => (
+              <div key={ingredient.name}>
+                <button style={{display: "flex", alignItems: "center"}} onClick={() => AddIngredient(ingredient.name)}
+                        type='button'><img width={50} src={ingredient.image}
+                                           alt={ingredient.name}/>
+                  {ingredient.name}
+                  price:  {ingredient.price} KGS
+                </button>
+              </div>
+          ))}
+        </div>
+      </>
   )
-}
+
+};
 
 export default App
